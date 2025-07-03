@@ -1,4 +1,5 @@
 DAY-1
+1.     83. Remove Duplicates from Sorted List
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
         ListNode curr = head;
@@ -8,7 +9,6 @@ class Solution {
                 
                 curr.next = curr.next.next;
             } else {
-                
                 curr = curr.next;
             }
         }
