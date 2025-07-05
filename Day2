@@ -1,0 +1,24 @@
+1.  1089. Duplicate Zeros  
+import java.util.*;
+class Solution {
+    public void duplicateZeros(int[] arr) {
+        int n = arr.length;
+        int[] temp = new int[n];
+        int i = 0, j = 0;
+        while (i < n && j < n) {
+            temp[j] = arr[i];
+            if (arr[i] == 0 && j + 1 < n) {
+                j++;
+                temp[j] = 0; 
+            }
+            i++;
+            j++;
+        }
+        for (int k = 0; k < n; k++) {
+            arr[k] = temp[k];
+        }
+    }
+}
+
+
+
