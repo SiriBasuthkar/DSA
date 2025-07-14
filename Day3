@@ -20,28 +20,22 @@ class Solution {
 3541. Find Most Frequent Vowel and Consonant
 class Solution {
     public int maxFreqSum(String s) {
-        HashMap<Character, Integer> map = new HashMap<>();
-
-        // Count frequency of each character
+        HashMap<Character,Integer> map=new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-            map.put(ch, map.getOrDefault(ch, 0) + 1);
+    char ch = s.charAt(i);
+    map.put(ch, map.getOrDefault(ch, 0) + 1);
+}
+
+        int max1=0;
+        int max2=0;
+        for(Map.Entry<Character, Integer> entry : map.entrySet()){
+        if(entry.getKey()=='a'||entry.getKey()=='e'||entry.getKey()=='i'||entry.getKey()=='o'||entry.getKey()=='u'){
+            max1=Math.max(max1,entry.getValue());
         }
-
-        int max1 = 0; // For vowels
-        int max2 = 0; // For consonants
-
-        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-            char key = entry.getKey();
-            int value = entry.getValue();
-
-            if (key == 'a' || key == 'e' || key == 'i' || key == 'o' || key == 'u') {
-                max1 = Math.max(max1, value);
-            } else {
-                max2 = Math.max(max2, value);
-            }
+        else{
+            max2=Math.max(max2,entry.getValue());
         }
-
-        return Math.abs(max2 + max1);
     }
+    return Math.abs(max1+max2);
+}
 }
