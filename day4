@@ -1,0 +1,24 @@
+49. Group Anagrams
+
+import java.util.*;
+
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        // A map to hold the sorted word as key and list of anagrams as value
+        Map<String, List<String>> map = new HashMap<>();
+
+        for (String s : strs) {
+            char[] ch = s.toCharArray();
+            Arrays.sort(ch);
+            String sorted = new String(ch);
+
+            // Add to map
+            if (!map.containsKey(sorted)) {
+                map.put(sorted, new ArrayList<>());
+            }
+            map.get(sorted).add(s);
+        }
+
+        return new ArrayList<>(map.values());
+    }
+}
